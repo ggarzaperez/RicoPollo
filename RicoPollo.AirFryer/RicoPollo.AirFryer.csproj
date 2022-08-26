@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MessageModels\RicoPollo.Models.csproj" />
+    <ProjectReference Include="..\RicoPollo.Models\RicoPollo.Models.csproj" />
     <ProjectReference Include="..\RicoPollo.CommonOperations\RicoPollo.CommonOperations.csproj" />
   </ItemGroup>
 

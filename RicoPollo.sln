@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.ChickenOven", "ChickenOven\RicoPollo.ChickenOven.csproj", "{EA94D232-F43E-493F-9EA5-E3ADE351EAFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.ChickenOven", "RicoPollo.ChickenOven\RicoPollo.ChickenOven.csproj", "{EA94D232-F43E-493F-9EA5-E3ADE351EAFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.TicketManager", "TicketManager\RicoPollo.TicketManager.csproj", "{5B99E40B-FA51-42E5-AAB9-4864353061B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.TicketManager", "RicoPollo.TicketManager\RicoPollo.TicketManager.csproj", "{5B99E40B-FA51-42E5-AAB9-4864353061B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.Models", "MessageModels\RicoPollo.Models.csproj", "{9A1B0CB1-B687-42D7-B6B5-804E1868101B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.Models", "RicoPollo.Models\RicoPollo.Models.csproj", "{9A1B0CB1-B687-42D7-B6B5-804E1868101B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RicoPollo.CommonOperations", "RicoPollo.CommonOperations\RicoPollo.CommonOperations.csproj", "{55A54F42-04A8-4AB8-A2ED-875B13E335B2}"
 EndProject

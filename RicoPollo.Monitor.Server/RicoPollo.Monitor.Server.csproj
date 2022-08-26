@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MessageModels\RicoPollo.Models.csproj" />
+    <ProjectReference Include="..\RicoPollo.Models\RicoPollo.Models.csproj" />
   </ItemGroup>
 
 </Project>
