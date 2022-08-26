@@ -1,0 +1,15 @@
+﻿
+@if (itemStatus == ItemStatuses.Complete) {
+    <span>&#9989;</span>
+}
+else if (itemStatus == ItemStatuses.Failed) {   
+    <span>&#10060;</span>
+}
+else {
+    <span>&#9200;</span>
+}
+
+
+@code {
+    [Parameter] public ItemStatuses itemStatus { get; set; }
+}

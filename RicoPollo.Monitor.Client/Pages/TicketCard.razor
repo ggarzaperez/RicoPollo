@@ -1,0 +1,34 @@
+﻿@if (ticket is not null)
+{
+    <div class="card mb-4" style="width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title text-center text-dark">Batch Order #: @ticket.TicketOrder</h4>
+            <h5 class="card-subtitle text-center text-dark">@ticket.TicketId</h5>
+            <div class="card-body text-secondary mt-3">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>&#127831;</td>
+                            <td><StatusBadge itemStatus=@ticket.ChickenStatus /></td>
+                            <td>@ticket.ChickenAttempt</td>
+                        </tr>
+                        <tr>
+                            <td>&#127839;</td>
+                            <td><StatusBadge itemStatus=@ticket.FriesStatus /></td>
+                            <td>@ticket.FriesAttempt</td>
+                        </tr>
+                        <tr>
+                            <td>&#129377;</td>
+                            <td><StatusBadge itemStatus=@ticket.TakeoutStatus /></td>
+                            <td>@ticket.TakeoutAttempt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public Ticket ticket { get; set; }
+}

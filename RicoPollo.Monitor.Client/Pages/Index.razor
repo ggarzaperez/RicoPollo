@@ -1,0 +1,78 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.SignalR.Client
+@implements IAsyncDisposable
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="text-center">Ticket Wheel</h3>
+            @if(currentTickets != null) {
+                <div class="d-flex justify-content-evenly flex-wrap">
+                    @foreach(var ticket in currentTickets)
+                    {
+                        <TicketCard ticket=@ticket />
+                    }
+                </div>
+            }
+        </div>
+        <div class="col-6">
+            <h3 class="text-center">Ticket Archive</h3>
+            @if (archiveTickets != null)
+            {
+                <div class="d-flex justify-content-evenly flex-wrap">
+                    @foreach (var ticket in archiveTickets)
+                    {
+                        <TicketCard ticket=@ticket />
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Ticket> currentTickets = new List<Ticket>();
+    private List<Ticket> archiveTickets = new List<Ticket>();
+    private HubConnection? hubConnection;
+    private HubConnection? archiveConnection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+        .WithUrl("https://localhost:7270/ticketshub")
+        .Build();
+
+        archiveConnection = new HubConnectionBuilder()
+        .WithUrl("https://localhost:7270/archivehub")
+        .Build();
+
+        hubConnection.On<List<Ticket>>("TicketsUpdated", async (List<Ticket> tickets) =>
+        {
+            currentTickets = tickets;
+            await InvokeAsync(StateHasChanged);
+        });
+
+        archiveConnection.On<List<Ticket>>("ArchiveUpdated", async (List<Ticket> tickets) =>
+        {
+            archiveTickets = tickets;
+            await InvokeAsync(StateHasChanged);
+        });
+
+        await hubConnection.StartAsync();
+        await archiveConnection.StartAsync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+        {
+            await hubConnection.DisposeAsync();
+        }
+
+        if (archiveConnection is not null)
+        {
+            await archiveConnection.DisposeAsync();
+        }
+    }
+}
